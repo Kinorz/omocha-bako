@@ -1,0 +1,25 @@
+# ========================
+# .NET / ASP.NET Core
+# ========================
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+# ローカル環境用設定ファイル
+appsettings.Development.json
+appsettings.Local.json
+
+# NuGet キャッシュ
+*.nupkg
+packages/
+
+# Rider / VSCode / IDE
+.idea/
+.vscode/
+
+# ログ / デバッグ
+*.log
