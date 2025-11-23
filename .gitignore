@@ -4,3 +4,9 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Environment files (keep examples tracked)
+.env
+.env.*
+.env.docker
+!.env.docker.example
