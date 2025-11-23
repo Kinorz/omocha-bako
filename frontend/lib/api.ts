@@ -25,9 +25,41 @@ export async function fetchFromApi<TResponse>(path: string, init?: RequestInit):
     },
   });
 
+  const responseText = await response.text();
+
   if (!response.ok) {
-    throw new Error(`API call failed with status ${response.status}: ${response.statusText}`);
+    let message = `API call failed with status ${response.status}: ${response.statusText}`;
+
+    try {
+      const parsed = JSON.parse(responseText);
+      const problemDetailsTitle = parsed?.title ?? parsed?.error ?? parsed?.message;
+      if (problemDetailsTitle) {
+        message = `${message}\n${problemDetailsTitle}`;
+      }
+
+      const errors = parsed?.errors;
+      if (errors && typeof errors === "object") {
+        const flattened = Object.values(errors)
+          .flat()
+          .join("\n");
+        if (flattened) {
+          message = `${message}\n${flattened}`;
+        }
+      }
+    } catch {
+      // ignore JSON parse issues and fall back to default message
+    }
+
+    throw new Error(message);
   }
 
-  return response.json();
+  if (!responseText) {
+    return undefined as TResponse;
+  }
+
+  try {
+    return JSON.parse(responseText) as TResponse;
+  } catch {
+    return responseText as unknown as TResponse;
+  }
 }

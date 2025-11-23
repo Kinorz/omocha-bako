@@ -31,6 +31,13 @@ Start the dev server on [http://localhost:3000](http://localhost:3000):
 
 ```bash
 npm run dev
+```
+
+## 認証用ページ
+
+- `http://localhost:3000/register` … `/api/auth/register` に POST するユーザー登録フォーム。成功するとレスポンス JSON を表示し、`localStorage` に保存します。
+- `http://localhost:3000/login` … `/api/auth/login` に POST するログインフォーム。保存済みトークンの確認・コピー・削除ができます。
+
 ## Linting
 
 ```bash

@@ -150,6 +150,7 @@
 - `expiresIn`: アクセストークンの寿命（秒）。デフォルトで 3600 秒 = 1 時間。
 - `refreshToken`: 長寿命トークン。失効前に `/api/auth/refresh` に送ることでトークンを更新できます。安全なストレージ（HttpOnly Cookie など）に保存してください。
 
+
 ### Postman / curl サンプル
 
 ```bash
@@ -168,3 +169,8 @@ ACCESS_TOKEN=$(echo "$LOGIN_RESPONSE" | jq -r '.accessToken')
 # 認証必須 API の呼び出し
 curl http://localhost:5232/WeatherForecast \
   -H "Authorization: Bearer ${ACCESS_TOKEN}"
+
+# トークン更新
+curl -X POST http://localhost:5232/api/auth/refresh \
+	-H "Content-Type: application/json" \
+	-d '{"refreshToken":"<refresh token>"}'
