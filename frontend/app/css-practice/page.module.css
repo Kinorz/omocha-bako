@@ -1,0 +1,283 @@
+.wrap {
+  min-height: 100vh;
+  padding: 40px 16px;
+  background: #fafafa;
+  color: #111827;
+}
+
+.main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  background: #ffffff;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #10b981;
+}
+
+.h1 {
+  margin: 6px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.lead {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.section {
+  margin-top: 28px;
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+}
+
+.h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.muted {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.row {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.buttonPrimary {
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  background: #10b981;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buttonPrimary:hover {
+  background: #059669;
+}
+
+.buttonSecondary {
+  border-radius: 12px;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buttonSecondary:hover {
+  background: #f3f4f6;
+}
+
+.link {
+  font-weight: 600;
+  color: #047857;
+  text-underline-offset: 4px;
+}
+
+.link:hover {
+  color: #065f46;
+}
+
+.grid {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.label {
+  display: grid;
+  gap: 6px;
+}
+
+.labelText {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.input,
+.select {
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  padding: 0 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.input:focus,
+.select:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+}
+
+.list {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.listItem {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #f9fafb;
+}
+
+.details {
+  padding: 18px 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+}
+
+.bubble {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 80px;
+  padding: 16px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  background-color: #d6fdff;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+}
+
+.bubble::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 26%;
+  border-style: solid;
+  border-width: 20px 30px 0 0;
+  border-color: #000000 transparent transparent;
+  transform: translate(-50%, 100%) skew(-43deg);
+  transform-origin: top;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 26%;
+  border-style: solid;
+  border-width: 16.3px 24.4px 0 0;
+  border-color: #d6fdff transparent transparent;
+  transform: translate(calc(-50% - 0.8px), 100%) skew(-43deg);
+  transform-origin: top;
+}
+
+.bubbleText {
+  margin: 0;
+  font-size: 14px;
+  color: #374151;
+}
+
+.codeLike {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.95em;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  .wrap {
+    background: #000;
+    color: #fafafa;
+  }
+
+  .main {
+    background: #0b0b0b;
+    border-color: #27272a;
+  }
+
+  .lead,
+  .muted,
+  .labelText {
+    color: #a1a1aa;
+  }
+
+  .card,
+  .details {
+    border-color: #27272a;
+  }
+
+  .bubbleText {
+    color: #d4d4d8;
+  }
+
+  .codeLike {
+    background: #18181b;
+    color: #fafafa;
+  }
+
+  .buttonSecondary {
+    border-color: #3f3f46;
+  }
+
+  .buttonSecondary:hover {
+    background: #18181b;
+  }
+
+  .input,
+  .select {
+    border-color: #3f3f46;
+    background: #09090b;
+    color: #fafafa;
+  }
+
+  .listItem {
+    background: #18181b;
+  }
+
+  .link {
+    color: #6ee7b7;
+  }
+
+  .link:hover {
+    color: #a7f3d0;
+  }
+}

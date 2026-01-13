@@ -38,11 +38,20 @@ export default function RootLayout({
                 Omocha Bako
               </Link>
               <nav className="flex items-center gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-300">
+                <Link href="/" className="transition hover:text-emerald-600">
+                  ダッシュボード
+                </Link>
+                <Link href="/css-practice" className="transition hover:text-emerald-600">
+                  CSS練習
+                </Link>
                 <Link href="/register" className="transition hover:text-emerald-600">
                   ユーザー登録
                 </Link>
                 <Link href="/login" className="transition hover:text-emerald-600">
                   ログイン
+                </Link>
+                <Link href="/protected" className="transition hover:text-emerald-600">
+                  保護 API
                 </Link>
               </nav>
             </div>

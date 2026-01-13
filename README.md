@@ -165,7 +165,6 @@ LOGIN_RESPONSE=$(curl -s -X POST http://localhost:5232/api/auth/login \
   -d '{"email":"user@example.com","password":"Str0ng!Passw0rd"}')
 
 ACCESS_TOKEN=$(echo "$LOGIN_RESPONSE" | jq -r '.accessToken')
-
 # 認証必須 API の呼び出し
 curl http://localhost:5232/WeatherForecast \
   -H "Authorization: Bearer ${ACCESS_TOKEN}"
@@ -174,3 +173,11 @@ curl http://localhost:5232/WeatherForecast \
 curl -X POST http://localhost:5232/api/auth/refresh \
 	-H "Content-Type: application/json" \
 	-d '{"refreshToken":"<refresh token>"}'
+
+### Frontend から `[Authorize]` API を試す（`/protected` ページ）
+
+- Next.js 側でログイン／登録すると、アクセストークンとリフレッシュトークンがブラウザの `localStorage` に保存されます。
+- ヘッダーの **Protected** リンク（`/protected`）を開くと、保存済みトークンの状態を確認しつつ `GET /weatherforecast` を呼び出す UI が表示されます。
+- 「API を呼び出す」を押すと `Authorization: Bearer <accessToken>` 付きでバックエンドにリクエストし、成功すれば天気予報のレスポンスがカード表示されます。
+- トークンが期限切れ／未保存の場合はエラーメッセージが表示されるので、再ログインまたは「ローカルのトークンを削除」で状態をリセットしてください。
+- `.env.local` の `NEXT_PUBLIC_API_BASE_URL` とバックエンドの URL が一致している必要があります（HTTPS 推奨）。
